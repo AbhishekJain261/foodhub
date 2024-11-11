@@ -1,5 +1,5 @@
-import NavLeftTabs from "@/component/nav-left-tab";
-import NavRightTabs from "@/component/nav-right-tabs";
+import NavLeftTabs from "@/components/nav-left-tab";
+import NavRightTabs from "@/components/nav-right-tabs";
 import react from "react";
 
 const Navbar = () => {

@@ -27,7 +27,7 @@ const Products = () => {
                 setRecipes(response.data.recipes);
                 // console.log(response.data)
             } catch (error) {
-                setError("examoke");
+                // setError("examoke");
             }
         };
 
@@ -42,7 +42,7 @@ const Products = () => {
     // }
 
     return (
-        <div className="grid grid-cols-6 grid-rows-5 gap-4">
+        <div className="grid  grid-rows-5 gap-4">
             {/* {recipes?.map((recipes, index) => (
                 <div key={index}>
                     <Image
