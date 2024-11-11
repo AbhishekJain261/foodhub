@@ -1,22 +1,17 @@
-'use client'
+"use client";
 
-import React from 'react';
-import Input from './input';
+import React, { useState } from "react";
+import Input from "./input";
 
 interface SearchProps {
-    className?: string;
+  className?: string;
 }
-const Search: React.FC<SearchProps> = ({className}) => {
-
-    const handleSearch = () => {
-        console.log('Search')
-    }
-    
+const Search: React.FC<SearchProps> = ({ className }) => {
   return (
     <div className={className}>
-        <Input  placeholder='Search for any hub' value='' className='px-2' onChange={handleSearch} />
+      <Input placeholder="Search for any hub" />
     </div>
   );
-}
+};
 
 export default Search;

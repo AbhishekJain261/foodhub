@@ -1,5 +1,5 @@
 // components/Input.js
-import React from "react";
+import React, { useState } from "react";
 
 interface InputProps {
   value?: string;
@@ -9,19 +9,29 @@ interface InputProps {
 }
 
 const Input: React.FC<InputProps> = ({
-  value,
+  value = "",
   onChange,
   placeholder,
   className,
 }) => {
+  const [inputValue, setInputValue] = useState(value);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+    if (onChange) {
+      onChange(e);
+    }
+  };
+
   return (
     <div>
       <input
         type="text"
-        className={`w-full border border-[#aaa] ${className}`}
+        className={`w-full border ${className}`}
+        style={{border: '1px solid', borderRadius: '10px',padding: '10px'}}
         placeholder={placeholder}
-        value={value}
-        onChange={onChange}
+        value={inputValue}
+        onChange={handleChange}
       />
     </div>
   );
