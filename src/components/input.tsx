@@ -23,6 +23,8 @@ const Input: React.FC<InputProps> = ({
         }
     };
 
+    console.log(inputValue);
+
     return (
         <div>
             <input
