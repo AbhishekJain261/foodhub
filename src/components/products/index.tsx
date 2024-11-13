@@ -22,7 +22,7 @@ const Products = () => {
         const fetchRecipes = async () => {
             try {
                 const response = await axios.get(
-                    "gdfgdghttps://courses.edx.org/api/courses/v1/courses/"
+                    "https://courses.edx.org/api/courses/v1/courses/"
                 );
 
                 setRecipes(response.data.recipes);
