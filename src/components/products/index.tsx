@@ -4,6 +4,7 @@ import axios from "axios";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useEffect } from "react";
+
 interface Recipe {
     // Define the properties of a recipe based on the actual API response
     id: number;
@@ -21,7 +22,7 @@ const Products = () => {
         const fetchRecipes = async () => {
             try {
                 const response = await axios.get(
-                    "https://dummyjson.com/recipes"
+                    "gdfgdghttps://courses.edx.org/api/courses/v1/courses/"
                 );
 
                 setRecipes(response.data.recipes);
