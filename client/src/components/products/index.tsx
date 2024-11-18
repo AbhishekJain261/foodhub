@@ -2,34 +2,32 @@
 
 import axios from "axios";
 import Image from "next/image";
+import Search from "../search";
 import React, { useState } from "react";
 import { useEffect } from "react";
-import Search from "../search";
 import { RiSearchEyeLine } from "react-icons/ri";
 
 interface Recipe {
-    // Define the properties of a recipe based on the actual API response
     id: number;
     title: string;
     name: string;
     image: string;
-    // Add other fields as needed based on API response
 }
 
 const Products = () => {
     const [recipes, setRecipes] = useState<Recipe[] | null>(null);
     const [error, setError] = useState(null);
     const [searchQuery, setSearchQuery] = useState("");
+    const [id, setId] = useState("");
 
     useEffect(() => {
         const fetchRecipes = async () => {
             try {
                 const response = await axios.get(
-                    "https://dummyjson.com/recipes"
+                    "http://localhost:5000/recipes"
                 );
 
-                setRecipes(response.data.recipes);
-                // console.log(response.data.recipes)
+                setRecipes(response.data);
             } catch (error) {
                 // setError("examoke");
             }
@@ -39,8 +37,19 @@ const Products = () => {
     }, []);
 
     const filteredRecipes = recipes?.filter((recipe) =>
-        recipe.name.toLowerCase().includes(searchQuery.toLowerCase())
+        recipe.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
+
+    const handleIdClick = async (id: string) => {
+        console.log(id);
+
+        try {
+            const response = await axios.put(
+                `http://localhost:5000/recipes/${id}/views`
+            );
+            console.log(response);
+        } catch (error) {}
+    };
 
     return (
         <>
@@ -68,26 +77,31 @@ const Products = () => {
             <div className="grid  grid-rows-5 gap-4">
                 <div className="pin_container">
                     {filteredRecipes?.map((recipe, index) => (
-                        <div
-                            className={`card ${
-                                index % 3 === 0
-                                    ? "card_small"
-                                    : index % 3 === 1
-                                    ? "card_medium"
-                                    : "card_large"
-                            }`}
-                            key={index}
-                        >
-                            <Image
-                                src={recipe.image}
-                                alt={recipe.name}
-                                className="w-full !h-full card_image"
-                                width={100}
-                                height={100}
-                                unoptimized={true}
-                            />
-                            <p>{recipe.name}</p>
-                        </div>
+                        <>
+                            {console.log(recipe)}
+
+                            <div
+                                className={`card ${
+                                    index % 3 === 0
+                                        ? "card_small"
+                                        : index % 3 === 1
+                                        ? "card_medium"
+                                        : "card_large"
+                                }`}
+                                key={index}
+                                onClick={() => handleIdClick(recipe._id)}
+                            >
+                                <Image
+                                    src={recipe.image}
+                                    alt={recipe.name}
+                                    className="w-full !h-full card_image"
+                                    width={100}
+                                    height={100}
+                                    unoptimized={true}
+                                />
+                                <p>{recipe.name}</p>
+                            </div>
+                        </>
                     ))}
                 </div>
             </div>

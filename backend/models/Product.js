@@ -17,6 +17,8 @@ const productSchema = new mongoose.Schema(
             required: true,
         },
 
+        totalViews: { type: Number, default: 0 },
+
         rating: {
             type: Number,
             min: 0,
@@ -29,4 +31,4 @@ const productSchema = new mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model("products", productSchema);
+module.exports = mongoose.model("Product", productSchema, "test");
