@@ -1,0 +1,52 @@
+[
+    {
+        "title": "Amazing Spaghetti Recipe",
+        "tags": [
+            "Italian",
+            "Pasta",
+            "Dinner"
+        ],
+        "image": "https://example.com/images/spaghetti.jpg",
+        "rating": 4.5
+    },
+    {
+        "title": "Classic Pancakes",
+        "tags": [
+            "Breakfast",
+            "Easy",
+            "Sweet"
+        ],
+        "image": "https://example.com/images/pancakes.jpg",
+        "rating": 4.8
+    },
+    {
+        "title": "Healthy Green Smoothie",
+        "tags": [
+            "Healthy",
+            "Drink",
+            "Vegan"
+        ],
+        "image": "https://example.com/images/green-smoothie.jpg",
+        "rating": 4.2
+    },
+    {
+        "title": "Juicy Grilled Chicken",
+        "tags": [
+            "Chicken",
+            "Grilled",
+            "Protein"
+        ],
+        "image": "https://example.com/images/grilled-chicken.jpg",
+        "rating": 5
+    },
+    {
+        "title": "Decadent Chocolate Cake",
+        "tags": [
+            "Dessert",
+            "Chocolate",
+            "Baking"
+        ],
+        "image": "https://example.com/images/chocolate-cake.jpg",
+        "rating": 4.9
+    }
+]
