@@ -5,7 +5,7 @@
 :root {
     --background: #ffffff;
     --foreground: #171717;
-    --card_width: 260px;
+    --card_width: 285px;
     --row_increment: 10px;
     --card_border_radius: 16px;
     --card_small: 26;
