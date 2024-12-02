@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema(
         },
 
         totalViews: { type: Number, default: 0 },
-
+        totalLikes:{type:Number, default: 0},
         rating: {
             type: Number,
             min: 0,

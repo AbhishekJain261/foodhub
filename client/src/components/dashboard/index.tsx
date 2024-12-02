@@ -3,9 +3,9 @@ import React from "react";
 import { IoHome } from "react-icons/io5";
 import { MdExplore } from "react-icons/md";
 
-const NavLeftTabs = () => {
+const Dashboard = () => {
   return (
-    <div>
+    <div className="border-r px-5 mr-9 h-full">
       <div className="mb-5 home-icon">
         <Link href="/">
           <IoHome size={28} />
@@ -20,4 +20,4 @@ const NavLeftTabs = () => {
   );
 };
 
-export default NavLeftTabs;
+export default Dashboard;
