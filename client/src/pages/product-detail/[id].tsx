@@ -9,8 +9,6 @@ const ProductDetail = () => {
   const params = useParams();
   const [data, setData] = useState("");
 
-  console.log(params?.id);
-
   const singleProduct = async () => {
     const response = await axios.get(
       `http://localhost:5000/recipes/${params?.id}`

@@ -6,6 +6,7 @@ interface InputProps {
     placeholder?: string;
     className?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    type?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -13,6 +14,7 @@ const Input: React.FC<InputProps> = ({
     onChange,
     placeholder,
     className,
+    type,
 }) => {
     const [inputValue, setInputValue] = useState(value);
 
@@ -23,18 +25,11 @@ const Input: React.FC<InputProps> = ({
         }
     };
 
-    console.log(inputValue);
-
     return (
-        <div>
+        <div className="w-full">
             <input
-                type="text"
-                className={`w-full border ${className} searchInputBtn`}
-                style={{
-                    border: "1px solid",
-                    borderRadius: "10px",
-                    padding: "10px",
-                }}
+                type={type}
+                className={`w-full border ${className} searchInputBtn border rounded-[10px] p-[10px]`}
                 placeholder={placeholder}
                 value={inputValue}
                 onChange={handleChange}

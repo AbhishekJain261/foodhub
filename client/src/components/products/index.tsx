@@ -9,6 +9,7 @@ import { RiSearchEyeLine } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { Router, useRouter } from "next/router";
 import { log } from "console";
+import api from "@/utils/api";
 
 interface Recipe {
   id: number;
@@ -16,26 +17,24 @@ interface Recipe {
   title: string;
   name: string;
   image: string;
+  totalViews: number;
 }
 
 const Products = () => {
   const [recipes, setRecipes] = useState<Recipe[] | null>(null);
-  const [error, setError] = useState(null);
-  // const [searchQuery, setSearchQuery] = useState("");
-  const [id, setId] = useState("");
   const searchQuery = useSelector((state: any) => state.search.query);
+  const filterQuery = useSelector((state: any) => state.filter.filterValue);
+
+  console.log(recipes);
+
   const router = useRouter();
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/recipes");
-
+        const response = await api.getProducts();
         setRecipes(response.data);
-      } catch (error) {
-        // setError("examoke");
-      }
+      } catch (error) {}
     };
-
     fetchRecipes();
   }, []);
 
@@ -43,26 +42,24 @@ const Products = () => {
     recipe.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const handleIdClick = async (id: string) => {
-    console.log(id);
+  const filterRecipe =
+    filterQuery === recipes?.sort((a, b) => b.totalViews - a.totalViews);
+  console.log(filterRecipe, "hello");
 
-    router.push(`/product-detail/${id}`)
+  const handleIdClick = async (id: string) => {
     try {
-      const response = await axios.get(
-        `http://localhost:5000/recipes/${id}`
-      );
-      console.log(response)
+      const response = await api.getProductDetail(id);
+      const responseView = await api.getProductByViews(id);
+      router.push(`/product-detail/${id}`);
     } catch (error) {}
   };
-
+  console.log(filteredRecipes); 
   return (
     <>
       <div className="grid  grid-rows-5 gap-4">
         <div className="pin_container">
-          {filteredRecipes?.map((recipe, index) => (
+          {filteredRecipes ?.map((recipe, index) => (
             <>
-              {console.log(recipe)}
-
               <div
                 className={`card ${
                   index % 3 === 0
@@ -77,7 +74,7 @@ const Products = () => {
                 <Image
                   src={recipe.image}
                   alt={recipe.name}
-                  className="w-full !h-full card_image"
+                  className="w-full !h-full card_image cursor-pointer"
                   width={100}
                   height={100}
                   unoptimized={true}

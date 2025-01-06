@@ -7,8 +7,8 @@ const app = express();
 const PORT = 5000;
 
 // Middleware
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 // Connect to MongoDB
 connectDB();

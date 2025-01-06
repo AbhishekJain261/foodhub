@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@liveblocks/client": "^2.13.0",
+    "@liveblocks/react": "^2.13.0",
+    "@liveblocks/react-ui": "^2.13.0",
     "@reduxjs/toolkit": "^2.4.0",
     "axios": "^1.7.7",
     "next": "15.0.3",

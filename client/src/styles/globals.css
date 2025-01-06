@@ -3,74 +3,80 @@
 @tailwind utilities;
 
 :root {
-    --background: #ffffff;
-    --foreground: #171717;
-    --card_width: 285px;
-    --row_increment: 10px;
-    --card_border_radius: 16px;
-    --card_small: 26;
-    --card_medium: 33;
-    --card_large: 45;
+  --background: #ffffff;
+  --foreground: #171717;
+  --card_width: 285px;
+  --row_increment: 10px;
+  --card_border_radius: 16px;
+  --card_small: 26;
+  --card_medium: 33;
+  --card_large: 45;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
-    }
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
-img{
-    width: 100%;
-    height:100%;
+img {
+  width: 100%;
+  height: 100%;
 }
 .searchInputButton {
-    border: 2px solid;
-    border-radius: 4px;
-    padding: 10px;
+  border: 2px solid;
+  border-radius: 4px;
+  padding: 10px;
 }
-.container{
-    max-width:2440px;
-    width:100%;
-    margin: 0 auto;
-    padding: 10px;
+.container {
+  max-width: 2440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
 }
 .home-icon {
-    padding: 12px;
-    border-radius: 6px;
+  padding: 12px;
+  border-radius: 6px;
 }
 
 .home-icon:hover {
-    background: #8080801c;
+  background: #8080801c;
 }
 
 .card_image {
-    height: 100% !important;
-    border-radius: 12px;
+  height: 100% !important;
+  border-radius: 20px;
 }
 
 .pin_container {
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, var(--card_width));
-    grid-auto-rows: var(--row_increment);
-    justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--card_width));
+  grid-auto-rows: var(--row_increment);
+  justify-content: space-between;
 }
 
 .card {
-    padding: 0;
-    margin: 15px 10px;
-    border-radius: var(--card_border_radius);
+  padding: 0;
+  margin: 15px 10px;
+  border-radius: var(--card_border_radius);
 }
 
 .card_small {
-    grid-row-end: span var(--card_small);
+  grid-row-end: span var(--card_small);
 }
 
 .card_medium {
-    grid-row-end: span var(--card_medium);
+  grid-row-end: span var(--card_medium);
 }
 
 .card_large {
     grid-row-end: span var(--card_large);
+}
+
+
+.card_product{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 20px 0px;
+
 }
